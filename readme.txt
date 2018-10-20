@@ -1,0 +1,2 @@
+簡単な説明はreadme.mdに,AI仕様はAISpec.mdに,AIの作り方はhow_to_make_AI_script.mdに書いてあります.
+Markdownが見れない方はChromeに拡張機能Markdown PreviewPlus(https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl)を入れ,ファイルのURLへのアクセスを許可するをオンにして, mdファイルをchromeで開くと見れます.
