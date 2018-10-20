@@ -27,7 +27,7 @@
 * 他の船すべて轟沈(HP0)
 
 ## AIの作り方
-[how_to_make_AI_script.md](how_to_make_AI_script.md)に詳細が書いてあります. 仕様は[AISpec.md](AISpec.md)を読んでください.
+[how_to_make_AI_script.md](how_to_make_AI_script.md)に詳細が書いてあります. 仕様は[AISpec.md](AISpec.md)を読んでください. Markdownが見れない方はChromeに拡張機能Markdown PreviewPlus(https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl)を入れ,ファイルのURLへのアクセスを許可するをオンにして, mdファイルをchromeで開くと見れます.
 ### 環境
 Unityの最新版をインストールしてください. インストールが終わったらUnityを開き, Openからプロジェクトフォルダを指定して開きます. 途中でバージョン差違のコンバート確認画面が出るかもしれないですがOKかAcceptを押して進めてください.
 サンプルAIをAIShipController.csに書いてあります.
