@@ -124,7 +124,7 @@ public class MyAIShipController : ShipController{
     protected override void AIThink(){
         if(finishedAutoMove == true){
             Vector3 target = transform.position;
-            position.z += 30;
+            target.z += 30;
             AutoMoveToTarget(target);
         }
     }

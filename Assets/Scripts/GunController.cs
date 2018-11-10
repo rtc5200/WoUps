@@ -12,11 +12,9 @@ public class GunController : MonoBehaviour {
 	private Transform muzzle;
 	private Vector3 targetPos;
 
-	private bool AutoCtrEnabled = false;
-
-	public bool AutoCtrlEnabled{
-		get{return AutoCtrEnabled;}
-	}
+	//private bool AutoCtrEnabled = false;
+	[HideInInspector]
+	public bool AutoCtrEnabled{get;private set;} = false;
 
 
 	private float rotationSpeed;

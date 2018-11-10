@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ListUIToggle : MonoBehaviour {
-
+	[SerializeField]
 	public GameObject scroll;
 
 	void Update(){

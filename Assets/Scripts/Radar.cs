@@ -6,14 +6,17 @@ public class Radar : MonoBehaviour {
 	/// <summary>
 	/// 他の船のデータ(ShipsData)のList
 	/// </summary>
+	[HideInInspector]
 	public List<ShipData> OtherShipsData;
 	/// <summary>
 	/// 砲弾のデータ
 	/// </summary>
+	[HideInInspector]
 	public List<BulletData> BulletsData;
 	/// <summary>
 	/// 魚雷のデータ
 	/// </summary>
+	[HideInInspector]
 	public List<TorpedoData> TorpedosData;
 
 	public void UpdateData() {

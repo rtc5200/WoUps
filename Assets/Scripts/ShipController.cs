@@ -25,11 +25,11 @@ public class ShipController : MonoBehaviour {
 	/// <summary>
 	/// 自動移動が終了する/した時true
 	/// </summary>
-	protected bool finishedAutoMove = true;
+	protected bool finishedAutoMove{get;private set;} = true;
 	/// <summary>
 	/// 自動旋回が終了する/した時true
 	/// </summary>
-	protected bool finishedAutoRot = true;
+	protected bool finishedAutoRot{get;private set;} = true;
 
 
 	/// <summary>
@@ -61,15 +61,11 @@ public class ShipController : MonoBehaviour {
 			rotation_speed = clamped;
 		}
 	}
-	private int _AIThinkCount = 0;
+	
 	/// <summary>
 	/// AIThink関数が何回目の実行であるか
 	/// </summary>
-	protected int AIThinkCount{
-		get{
-			return _AIThinkCount;
-		}
-	}
+	protected int AIThinkCount{get;private set;} = 0;
 
 	void Awake()=>rb = GetComponent<Rigidbody>();	
 
@@ -82,7 +78,7 @@ public class ShipController : MonoBehaviour {
     void FixedUpdate () {
 		if(Time.fixedTime > 1f){
 			GetComponent<Radar>().UpdateData();
-			_AIThinkCount++;
+			AIThinkCount++;
 			AIThink();
 			rotate();
 			move();

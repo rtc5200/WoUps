@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
+	[SerializeField]
 	public ScrollRect scl;
 	[SerializeField]
 	public List<GameObject> shipsPrefabList;
@@ -47,7 +48,8 @@ public class GameController : MonoBehaviour {
 			instance.transform.LookAt(Vector3.zero);
 			var stats = instance.GetComponent<ShipStats>();
 			stats.ID = id;
-			if(stats.shipName == null || stats.shipName.Length == 0)stats.shipName = "AI" + id;
+			//if(stats.shipName == null || stats.shipName.Length == 0)stats.shipName = "AI" + id;
+			stats.name = stats.name ?? "AI" + id;
 			instance.name = stats.shipName;
 			shipsList.Add(instance);
 
