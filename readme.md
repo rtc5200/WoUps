@@ -92,3 +92,15 @@ Resources/Shipsフォルダ配下にある船が下の一覧にアイコンで�
 
 ## 連絡先
 バグや不明な点があれば[Twitter@rtc5200](https://twitter.com/rtc5200)にリプライorDMを送るか, Slackでrtc5200.syousaにDMを送ってください. 
+
+## 更新履歴
+### v1.1
+- 時間表示のバグ修正
+- OtherShipsDataのインスタンスを変更しないように変更
+- レーザーのデフォルトカラーを赤に指定
+- ShipsData,BulletsData,TorpedosDataの更新アルゴリズムを変更
+- getTime関数のバグ修正
+- ゲームスタート直後の魚雷リス発射バグの修正
+- フォントの変更
+- Winnerのスペルミス修正
+- ボタンデザインと配置の微々たる変更
