@@ -15,7 +15,7 @@ public class TorpedoFireStarter : MonoBehaviour {
 	private float fireDeltaTime = 10f;
 
 	public void Fire(Vector3 targetPos){
-		if(Time.time > nextFire){
+		if(Time.time > nextFire && Time.time - GameController.gameStartedTime > 1f){
 			nextFire = Time.time + fireDeltaTime;
 			targetPos.y = 0;
 			var fireBasePos = new Vector3(transform.position.x, -0.5f, transform.position.z);

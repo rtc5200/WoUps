@@ -2188,7 +2188,7 @@ MonoBehaviour:
   maxHP: 3000
   color: {r: 0, g: 0, b: 0, a: 0}
   author: rtc5200
-  icon: {fileID: 21300000, guid: bad1793dd35dbb34a8c4c7d46628a0b7, type: 3}
+  icon: {fileID: 21300000, guid: 0b002cc1319508349a9a73fb08c28eff, type: 3}
 --- !u!120 &120146535624943406
 LineRenderer:
   m_ObjectHideFlags: 1

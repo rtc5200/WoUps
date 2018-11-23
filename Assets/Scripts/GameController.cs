@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
 	private GameObject EndUI;
 
 	private bool isPausing = false;
-	public float gameStartedTime;
+	public static float gameStartedTime;
 
 	void Awake(){
 		Time.timeScale = 1f;
@@ -58,7 +58,8 @@ public class GameController : MonoBehaviour {
 			item.transform.SetParent(scl.content.transform,false);
 			id++;
 		}
-		GameObject.Find("Canvas").transform.Find("DemoModeText").gameObject.SetActive(GUIController.isDemoMode);	
+		GameObject.Find("Canvas").transform.Find("DemoModeText").gameObject.SetActive(GUIController.isDemoMode);
+		gameStartedTime = Time.time;	
 	}
 	void Update(){
 		if(!isPausing){
@@ -108,7 +109,7 @@ public class GameController : MonoBehaviour {
 		GUIController.selectedShipsList.Clear();
 		for(int i = 0; i < num;i++){
 			var e = GUIController.getRandomListElement(GUIController.loadedShipsList);
-			while(e.GetComponent<ShipStats>().name.Equals("Player") ||
+			while(e.GetComponent<ShipStats>().name.Equals("PlayerShip") ||
 				e.GetComponent<ShipStats>().name.Equals("StuckAI")){
 				e = GUIController.getRandomListElement(GUIController.loadedShipsList);
 			}
@@ -118,14 +119,23 @@ public class GameController : MonoBehaviour {
 		SceneManager.LoadScene("Main");
 	}
 
-	public List<ShipData> getOtherShipsData(Radar r){
-		var results = new List<ShipData>();
-		foreach(var ship in shipsList){
-			if(!ship.Equals(r.gameObject) && ship.activeSelf){
-				results.Add(new ShipData(ship));
+	public void getOtherShipsData(Radar r){
+		if(r.OtherShipsData == null || r.OtherShipsData.Count == 0){
+			r.OtherShipsData = new List<ShipData>();
+			foreach(var ship in shipsList){
+				if(!ship.Equals(r.gameObject) && ship.activeSelf){
+					r.OtherShipsData.Add(new ShipData(ship));
+				}
 			}
 		}
-		return results;
+		for(int i =0;i < r.OtherShipsData.Count;i++){
+			ShipData sd = r.OtherShipsData[i];
+			if(sd.hp == 0){
+				r.OtherShipsData.Remove(sd);
+			}else{
+				sd.UpdateData();
+			}
+		}
 	}
 	
 	public void onBacktoMenuClick(){

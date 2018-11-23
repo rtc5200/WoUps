@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour {
 
 	private Vector3 preMousePos;
 
+	private Vector3 preForward;
+
 
 	
 	// Update is called once per frame
@@ -32,9 +34,13 @@ public class CameraController : MonoBehaviour {
 
 	void SetFollowPos(){
 		if(target != null){
+			var diff = target.transform.forward - preForward;
 			var tarPos = target.transform.position - 40f * target.transform.forward;
 			tarPos.y = transform.position.y;
 			transform.position = tarPos;
+			if(diff.magnitude < Vector3.kEpsilon)
+				return;
+			preForward = target.transform.forward;
 		}
 	}
 	private void MouseUpdate()
@@ -85,5 +91,6 @@ public class CameraController : MonoBehaviour {
 		var pos = transform.position;
 		pos.y = 40f;
 		transform.position = pos;
+		preForward = target.transform.forward;
 	}
 }

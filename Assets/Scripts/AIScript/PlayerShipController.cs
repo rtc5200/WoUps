@@ -28,5 +28,6 @@ public class PlayerShipController : ShipController {
 		}else{									//E,Q押されていないときは回転せず
 			SetGunRotationSpeed(0,0f);
 		}
+		Debug.Log(radar.TorpedosData.Count);
 	}
 }

@@ -39,6 +39,8 @@ public class GUIController : MonoBehaviour {
 			queueListElementList.Add(AISelectMenu.transform.Find("QueueArea").Find("QueueElement" + i).gameObject);
 		}
 
+		MainMenu.GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta;
+		AISelectMenu.GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta;
 		AISelectMenu.SetActive(false);
 	}
 	
@@ -53,13 +55,14 @@ public class GUIController : MonoBehaviour {
 		
 	}
 	public void onDemoButtonClick(){
-		int maxnum = loadedShipsList.Count > 5 ? 5 : loadedShipsList.Count;
+		int maxnum = loadedShipsList.Count > 5 ? loadedShipsList.Count : 5;
 		int num = Random.Range(2,maxnum);
 		selectedShipsList.Clear();
 		for(int i = 0; i < num;i++){
 			var e = getRandomListElement(loadedShipsList);
 			while(e.GetComponent<ShipStats>().shipName == "Player" ||
 				e.GetComponent<ShipStats>().shipName == "StuckAI"){
+					
 				e = getRandomListElement(loadedShipsList);
 			}
 			selectedShipsList.Add(e);

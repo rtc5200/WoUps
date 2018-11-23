@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class ShipController : MonoBehaviour {
 	private Rigidbody rb;
@@ -25,11 +26,11 @@ public class ShipController : MonoBehaviour {
 	/// <summary>
 	/// 自動移動が終了する/した時true
 	/// </summary>
-	protected bool finishedAutoMove{get;private set;} = true;
+	protected bool finishedAutoMove{get;set;} = true;
 	/// <summary>
 	/// 自動旋回が終了する/した時true
 	/// </summary>
-	protected bool finishedAutoRot{get;private set;} = true;
+	protected bool finishedAutoRot{get;set;} = true;
 
 
 	/// <summary>
@@ -79,7 +80,11 @@ public class ShipController : MonoBehaviour {
 		if(Time.fixedTime > 1f){
 			GetComponent<Radar>().UpdateData();
 			AIThinkCount++;
-			AIThink();
+			try{
+				AIThink();
+			}catch(Exception e){
+				Debug.Log(e);
+			}
 			rotate();
 			move();
 			guns.Rotate(0);
@@ -231,7 +236,7 @@ public class ShipController : MonoBehaviour {
 	/// ゲーム開始からの経過時間を取得
 	/// </summary>
 	/// <returns>経過時間</returns>
-	protected float getTime() => GameObject.Find("GameController").GetComponent<GameController>().gameStartedTime;
+	protected float getTime() => Time.time - GameController.gameStartedTime;
 
 	/// <summary>
 	/// ゲーム開始前に一度だけ実行されるメソッド. 要オーバーライド

@@ -6,7 +6,8 @@ public class Laser : MonoBehaviour {
 
 	void Start(){
 		var lr = GetComponent<LineRenderer>();
-		Color c = transform.root.gameObject.GetComponent<ShipStats>().color;
+		var ss = transform.root.gameObject.GetComponent<ShipStats>();
+		Color c = ss == null ? Color.red : ss.color;
 			lr.widthMultiplier = 0.2f;
 			Gradient grad = new Gradient();
 			grad.SetKeys(
